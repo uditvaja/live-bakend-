@@ -1,7 +1,7 @@
 
 const express = require("express");
 const router = express.Router();
-const {   bookapointmentPatientController, doctorFlowAppointmentController } = require("../../../src/controllers");
+const {   bookapointmentPatientController, doctorFlowAppointmentController } = require("../../../controllers");
 const authenticPatient = require("../../../middlewares/patientAuth");
 const authenticDoctor = require("../../../middlewares/doctorAuth");
 

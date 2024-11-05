@@ -18,11 +18,11 @@ module.exports.patientController = require("./patient/patient.controller");
 
 module.exports.dashboardController = require("./admin/dashboard.controller");
 
-// module.exports.bookapointmentPatientController = require("./bookapointment/bookApointment.controller");
+module.exports.bookapointmentPatientController = require("./bookapointment/bookApointment.controller");
 
 module.exports.doctorTimeSlotController = require("./doctor/timeslot.doctor.controller");
 
-// module.exports.doctorFlowAppointmentController = require("./bookapointment/doctorflow.controller");
+module.exports.doctorFlowAppointmentController = require("./bookapointment/doctorflow.controller");
 
 // module.exports.prescriptionController = require("./prescription/prescription.controller");
 

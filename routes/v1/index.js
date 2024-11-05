@@ -19,7 +19,7 @@ const authPatientRoute = require("./patient/auth.route");
 
 const dashboardAdminRoute = require("./dashboard/dashboard.route");
 
-// const bookingappointmentRoute = require("./bookappointment/book.appointment.patient.route");
+const bookingappointmentRoute = require("./bookappointment/book.appointment.patient.route");
 // const prescriptionRoute = require("./prescription/prescription.route");
 
 // const telecommunicationRoute = require("./telecommunication/telecomunication.route")
@@ -45,7 +45,7 @@ router.use("/doctor", authDoctorRoute);
 router.use("/patient", authPatientRoute);
 
 router.use("/dashboard-admin", dashboardAdminRoute);
-// router.use("/bookappointment", bookingappointmentRoute);
+router.use("/bookappointment", bookingappointmentRoute);
 // router.use("/prescription", prescriptionRoute);
 
 // router.use("/telecomunication", telecommunicationRoute);
