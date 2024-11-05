@@ -7,8 +7,8 @@ const express = require("express");
 // const favoriteRoute = require("./patient/app/favoritedoctor.route");
 // 
 const patientDashboardRoute = require("./patient/dashboard/dashboard.route");
-// const paymentRoute = require("./payment/payment.route");
-// const billCreateRoute = require("./bill/bill.route");
+const paymentRoute = require("./payment/payment.route");
+const billCreateRoute = require("./bill/bill.route");
 
 // /* ---------------------------- DOCTOR ROUTE PATH --------------------------- */
 
@@ -26,10 +26,10 @@ const telecommunicationRoute = require("./telecommunication/telecomunication.rou
 const telecommunicationPatientRoute = require("./telecommunication/patient.telecommunication.route")
 
 const personalHealthRecordRoute = require("./personal health records/personal.health.record.route")
-// const bookappointementPatientFlowRoute = require("./bookappointment/book.appointement.doctor.route")
-// const dashboardAdminFlowRoute = require("./admin/dashboard/dashboard.route")
-// const videoCallRoute = require("./videocall/tokenRoute")
-// const chatRoute = require("./chat/chat.route")
+const bookappointementPatientFlowRoute = require("./bookappointment/book.appointement.doctor.route")
+const dashboardAdminFlowRoute = require("./admin/dashboard/dashboard.route")
+const videoCallRoute = require("./videocall/tokenRoute")
+const chatRoute = require("./chat/chat.route")
 
 
 
@@ -54,19 +54,19 @@ router.use("/telecomunication-patient", telecommunicationPatientRoute);
 
 
 router.use("/patient-flow-personal-health-record", personalHealthRecordRoute);
-// router.use("/bookappointment-patientFlow", bookappointementPatientFlowRoute);
+router.use("/bookappointment-patientFlow", bookappointementPatientFlowRoute);
 
-// router.use("/dashboard-adminFlow", dashboardAdminFlowRoute);
-// router.use("/video", videoCallRoute);
-// router.use("/chat", chatRoute);
-
-
+router.use("/dashboard-adminFlow", dashboardAdminFlowRoute);
+router.use("/video", videoCallRoute);
+router.use("/chat", chatRoute);
 
 
-// router.use("/bill", billCreateRoute);
-// router.use("/payment", paymentRoute);
 
-// router.use("/dashboard-patient",patientDashboardRoute );
+
+router.use("/bill", billCreateRoute);
+router.use("/payment", paymentRoute);
+
+router.use("/dashboard-patient",patientDashboardRoute );
 // router.use("/homescreen", homeScreenDoctorRoute);
 
 

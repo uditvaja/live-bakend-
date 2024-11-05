@@ -38,13 +38,13 @@ module.exports.uploadFileOfPrescriptionController = require("./prescription/doct
 
 module.exports.telecommunicationControllerPatientFlow = require("./telecommunications/patient.telecommunication.controller");
 
-// module.exports.billCreateController = require("./bill/bill.controller");
+module.exports.billCreateController = require("./bill/bill.controller");
 
-// module.exports.billPatientFlowController = require("./bill/patient.flow.bill.controller");
+module.exports.billPatientFlowController = require("./bill/patient.flow.bill.controller");
 
-// module.exports.paymentController = require("./payment/payment.controller");
+module.exports.paymentController = require("./payment/payment.controller");
 
-// module.exports.dashboardPatientController = require("./patient/dashboard/patient.dashboard.controller");
+module.exports.dashboardPatientController = require("./patient/dashboard/patient.dashboard.controller");
 
 
 
