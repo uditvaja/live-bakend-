@@ -18,17 +18,17 @@ router.post("/admin-login",
     // authenticAdmin,
  authAdminController.login);
 
-// /* -------------------------- FORGOT PASSWORD DOCTOR ----------- */
-// router.post("/forgot-pass", authAdminController.forgotPass);
+/* -------------------------- FORGOT PASSWORD DOCTOR ----------- */
+router.post("/forgot-pass", authAdminController.forgotPass);
 
-// /* -------------------------- VERIFY OTP DOCTOR ----------- */
-// router.post("/verify-otp", authAdminController.verifyOtp);
+/* -------------------------- VERIFY OTP DOCTOR ----------- */
+router.post("/verify-otp", authAdminController.verifyOtp);
 
-// /* -------------------------- RESET PASSWORD DOCTOR ----------- */
-// router.put("/reset-password", authAdminController.resetPassword);
+/* -------------------------- RESET PASSWORD DOCTOR ----------- */
+router.put("/reset-password", authAdminController.resetPassword);
 
-// /* -------------------------- CHANGE PASSWORD DOCTOR ----------- */
-// router.post("/change-password", authenticAdmin, authAdminController.changePassword);
+/* -------------------------- CHANGE PASSWORD DOCTOR ----------- */
+router.post("/change-password", authenticAdmin, authAdminController.changePassword);
 
 // /* -------------------------- UPDATE DOCTOR PROFILE DOCTOR ----------- */
 // router.put(
