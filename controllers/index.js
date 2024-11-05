@@ -1,5 +1,5 @@
 
-// module.exports.authAdminController = require("./admin/register.controller");
+module.exports.authAdminController = require("./admin/register.controller");
 // module.exports.hospitalController = require("./hospital/hospital.controller");
 // module.exports.adminController = require("./admin/admin.controller");
 // module.exports.doctorController = require("./admin/doctor.controller");

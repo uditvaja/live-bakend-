@@ -7,10 +7,6 @@ const { singleFileUpload, multiDiffFileUpload } = require("../../../helpers/uplo
 // const validate = require("../../../validations/admin.validation");
 
 router.get("/search-doctor-and-patient-list",
-    // authenticAdmin, 
+    authenticAdmin, 
     dashboardController.searchDoctorAndPatientist);
-
-
-
-
 module.exports = router;

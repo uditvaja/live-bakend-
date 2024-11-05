@@ -12,7 +12,7 @@ const patientDashboardRoute = require("./patient/dashboard/dashboard.route");
 
 // /* ---------------------------- DOCTOR ROUTE PATH --------------------------- */
 
-// const authRoute = require("./admin/auth.route");
+const authRoute = require("./admin/auth.route");
 // const hospitalRoute = require("./hospital/hospital.route");
 // const authDoctorRoute = require("./doctor/doctor.route");
 // const authPatientRoute = require("./patient/auth.route");
@@ -39,7 +39,7 @@ const dashboardAdminRoute = require("./dashboard/dashboard.route");
 const router = express.Router();
 
 /* -------------------------- ROUTE DEFINE -------------------------- */
-// router.use("/admin", authRoute);
+router.use("/admin", authRoute);
 // router.use("/hospital", hospitalRoute);
 // router.use("/doctor", authDoctorRoute);
 // router.use("/patient", authPatientRoute);
