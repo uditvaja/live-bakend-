@@ -7,8 +7,6 @@ const router = express.Router();
 // const { singleFileUpload } = require("../../../../helpers/upload");
 const {  telecommunicationController } = require("../../../controllers");
 
-
-
 /* -------------------------- CREATE/SIGNUP DOCTOR ----------- */
 router.get("/telecom-today-appointment", telecommunicationController.getTodayAppointments);
 router.get("/telecom-upcomming-appointment", telecommunicationController.getUpcomingAppointments);
