@@ -2,9 +2,9 @@
 /* ------------------------------- DEFINE AREA ------------------------------ */
 const express = require("express");
 const router = express.Router();
-const {   patientAuthController, patientController } = require("../../../src/controllers");
+const {   patientAuthController, patientController } = require("../../../controllers");
 const authenticPatient = require("../../../middlewares/patientAuth");
-const { singleFileUpload, multiDiffFileUpload } = require("../../../src/helpers/upload");
+const { singleFileUpload, multiDiffFileUpload } = require("../../../helpers/upload");
 const multer = require('multer');
 /* ------------------------------- DOCTOR AUTH ------------------------------ */
 

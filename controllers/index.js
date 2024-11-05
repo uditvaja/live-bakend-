@@ -10,9 +10,9 @@ module.exports.doctorOwnController = require("./doctor/controller.doctor");
 
 
 
-// module.exports.patientAuthController = require("./patient/auh.patient.controller");
+module.exports.patientAuthController = require("./patient/auh.patient.controller");
 
-// module.exports.patientController = require("./patient/patient.controller");
+module.exports.patientController = require("./patient/patient.controller");
 
 // /* --------------------------------- PATIRNT -------------------------------- */
 
