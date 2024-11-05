@@ -24,7 +24,7 @@ module.exports.doctorTimeSlotController = require("./doctor/timeslot.doctor.cont
 
 module.exports.doctorFlowAppointmentController = require("./bookapointment/doctorflow.controller");
 
-// module.exports.prescriptionController = require("./prescription/prescription.controller");
+module.exports.prescriptionController = require("./prescription/prescription.controller");
 
 // module.exports.telecommunicationController = require("./telecommunications/telecommunication.controller");
 
@@ -32,9 +32,9 @@ module.exports.doctorFlowAppointmentController = require("./bookapointment/docto
 
 // module.exports.patintFlowBookappointmentController = require("./bookapointment/patientflow.controller");
 
-// module.exports.precriptionPatientController = require("./prescription/prescription.patient.controller");
+module.exports.precriptionPatientController = require("./prescription/prescription.patient.controller");
 
-// module.exports.uploadFileOfPrescriptionController = require("./prescription/doctor.flow.dashborad.upload.prescription");
+module.exports.uploadFileOfPrescriptionController = require("./prescription/doctor.flow.dashborad.upload.prescription");
 
 // module.exports.telecommunicationControllerPatientFlow = require("./telecommunications/patient.telecommunication.controller");
 
