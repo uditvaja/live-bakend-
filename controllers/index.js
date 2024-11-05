@@ -28,9 +28,9 @@ module.exports.prescriptionController = require("./prescription/prescription.con
 
 module.exports.telecommunicationController = require("./telecommunications/telecommunication.controller");
 
-// module.exports.patientFlowPersonalHealthRecordController = require("./patient/personal health record/personal.health.record.patientflow.controller");
+module.exports.patientFlowPersonalHealthRecordController = require("./patient/personal health record/personal.health.record.patientflow.controller");
 
-// module.exports.patintFlowBookappointmentController = require("./bookapointment/patientflow.controller");
+module.exports.patintFlowBookappointmentController = require("./bookapointment/patientflow.controller");
 
 module.exports.precriptionPatientController = require("./prescription/prescription.patient.controller");
 
