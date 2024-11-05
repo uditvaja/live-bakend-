@@ -4,7 +4,7 @@ const express = require("express");
 const router = express.Router();
 
 // const { singleFileUpload } = require("../../../../helpers/upload");
-const {  hospitalController } = require("../../../src/controllers");
+const {  hospitalController } = require("../../../controllers");
 
 
 
