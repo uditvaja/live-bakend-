@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 const getTodayAppointments = async (req, res) => {
     try {
               // Get doctorId from request
-              const { doctorId } = req.body;
+              const { doctorId } = req.parms;
 
               // Validate doctorId
               if (!doctorId) {
@@ -62,7 +62,7 @@ const getUpcomingAppointments = async (req, res) => {
     try {
 
           // Get doctorId from request
-          const { doctorId } = req.body;
+          const { doctorId } = req.parms;
 
           // Validate doctorId
           if (!doctorId) {
@@ -115,7 +115,7 @@ const getPreviousAppointments = async (req, res) => {
     try {
 
           // Get doctorId from request
-          const { doctorId } = req.body;
+          const { doctorId } = req.parms;
 
           // Validate doctorId
           if (!doctorId) {
@@ -164,7 +164,7 @@ const getCanceledAppointments = async (req, res) => {
     try {
 
           // Get doctorId from request
-          const { doctorId } = req.body;
+          const { doctorId } = req.parms;
 
           // Validate doctorId
           if (!doctorId) {
