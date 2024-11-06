@@ -472,7 +472,7 @@ const createAppointmentNote = async (req, res) => {
 // pateint record access in doctor flow
 const getDetailsPatients = async (req, res) => {
     try {
-        const { doctorId } = req.parms; // Get doctorId from the request body
+        const { doctorId } = req.params; // Corrected to req.params
 
         // Validate doctorId
         if (!doctorId) {
@@ -535,6 +535,10 @@ const getDetailsPatients = async (req, res) => {
         return res.status(500).json({ message: 'An error occurred while retrieving the appointments.' });
     }
 };
+
+// Ensure the doctorId is passed as a query or route parameter
+
+
 
 // patient record access in searching result month week day waise in doctor flow
 

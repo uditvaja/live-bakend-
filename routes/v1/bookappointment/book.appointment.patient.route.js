@@ -50,7 +50,7 @@ router.get("/doctorflow-cancel-appointmentbook-date",
                     
                     
                     // docotr flow in dash board ------------PATIENT RECORD ACCESS PANEL
-                router.get('/patient-record-access',authenticDoctor,doctorFlowAppointmentController.getDetailsPatients)
+                    router.get('/patient-record-access/:doctorId', authenticDoctor, doctorFlowAppointmentController.getDetailsPatients);
                 router.get('/patient-record-access-seraching-month',authenticDoctor,doctorFlowAppointmentController.getDetailsPatientsSearching)
                 
                 
