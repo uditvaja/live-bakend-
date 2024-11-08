@@ -434,6 +434,39 @@ const resetPassword = async (req, res) => {
     res.status(400).json({ success: false, message: error.message });
   }
 };
+
+
+const getPatientById = async (req, res) => {
+  try {
+    const { patientId } = req.params; // Get patient ID from the request parameters
+
+    // Find patient by ID
+    const patient = await Patient.findById(patientId);
+
+    // Check if the patient was found
+    if (!patient) {
+      return res.status(404).json({
+        success: false,
+        message: "Patient not found",
+      });
+    }
+
+    // Respond with the patient data
+    res.status(200).json({
+      success: true,
+      message: "Patient retrieved successfully",
+      data: patient,
+    });
+  } catch (error) {
+    // Handle errors
+    res.status(500).json({
+      success: false,
+      message: "Failed to retrieve patient",
+      error: error.message,
+    });
+  }
+};
+
 // /* ----------------------------- CHANGE PASSWORD ---------------------------- */
 const changePassword = async (req, res) => {
   try {
@@ -492,5 +525,6 @@ module.exports = {
   verifyOtp,
   resetPassword,
   changePassword,
-  getAllPatients
+  getAllPatients,
+  getPatientById
 };

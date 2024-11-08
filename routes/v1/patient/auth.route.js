@@ -27,6 +27,7 @@ router.put("/reset-password", patientAuthController.resetPassword);
 router.post("/change-password", authenticPatient, patientAuthController.changePassword);
 
 router.get('/getAllPatients', patientAuthController.getAllPatients);
+router.get('/getPatientById', patientAuthController.getPatientById);
 router.put(
     '/update-patient-profile',
     authenticPatient, // Middleware to authenticate the admin using access token
