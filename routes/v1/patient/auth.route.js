@@ -29,11 +29,11 @@ router.post("/change-password", authenticPatient, patientAuthController.changePa
 router.get('/getAllPatients', patientAuthController.getAllPatients);
 router.get('/getPatientById', patientAuthController.getPatientById);
 
-router.put(router.get('/getPatientById/:patientId',patientAuthController.getPatientById);
+
 
     '/update-patient-profile',
     authenticPatient, // Middleware to authenticate the admin using access token
     singleFileUpload('/patientImg', 'image'), // Middleware to handle image upload (folder name and field name for the file)
     patientController.updatePatientProfile // Controller function to handle the request
-  );
+
 module.exports = router;
