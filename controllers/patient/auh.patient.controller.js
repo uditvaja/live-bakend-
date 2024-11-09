@@ -2,7 +2,7 @@
 const bcrypt = require("bcrypt");
 const moment = require("moment");
 const jwt = require("jsonwebtoken");
-
+const mongoose = require('mongoose');
 // const { Admin } = require("../../models/admin.model");
 const ejs = require("ejs");
 const path = require("path");
