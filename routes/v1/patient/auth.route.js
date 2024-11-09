@@ -27,7 +27,7 @@ router.put("/reset-password", patientAuthController.resetPassword);
 router.post("/change-password", authenticPatient, patientAuthController.changePassword);
 
 router.get('/getAllPatients', patientAuthController.getAllPatients);
-router.get('/getPatientById', patientAuthController.getPatientById);
+router.post('/getPatientById', patientAuthController.getPatientById);
 
 
 

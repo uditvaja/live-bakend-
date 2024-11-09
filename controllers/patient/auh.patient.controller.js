@@ -438,12 +438,28 @@ const resetPassword = async (req, res) => {
 
 const getPatientById = async (req, res) => {
   try {
-    const { patientId } = req.params; // Get patient ID from the request parameters
+    const { patientId } = req.body; // Retrieve patientId from the request body
 
-    // Find patient by ID
+    // Validate if patientId is provided
+    if (!patientId) {
+      return res.status(400).json({
+        success: false,
+        message: "Patient ID is required",
+      });
+    }
+
+    // Check if patientId is a valid ObjectId if using MongoDB
+    if (!mongoose.Types.ObjectId.isValid(patientId)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid patient ID format",
+      });
+    }
+
+    // Find the patient by ID
     const patient = await Patient.findById(patientId);
 
-    // Check if the patient was found
+    // Check if patient exists
     if (!patient) {
       return res.status(404).json({
         success: false,
@@ -458,10 +474,10 @@ const getPatientById = async (req, res) => {
       data: patient,
     });
   } catch (error) {
-    // Handle errors
+    console.error("Error fetching patient:", error);
     res.status(500).json({
       success: false,
-      message: "Failed to retrieve patient",
+      message: "Something went wrong",
       error: error.message,
     });
   }
