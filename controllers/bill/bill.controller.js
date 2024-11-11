@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 const cloudinary = require('cloudinary').v2;
 const Bill = require("../../models/bill.model");
-
+const Patient = require('../../models/patient.model'); 
 /* ------------------------------- CREATE Hospital  ------------------------------- */
 const moment = require('moment');
 const Hospital = require("../../models/hospital.model");
@@ -35,42 +35,48 @@ const createBill = async (req, res) => {
 
 
 const monitorBill = async (req, res) => {
-    try {
-      // Retrieve specific fields from all bills in the database
-      const bills = await Bill.find({}, 'BillNumber disease_name patient_name phoneNumber BillDate BillTime is_active'); // Add fields you want to retrieve
-  
-      // Check if any bills exist
-      if (bills.length === 0) {
-        return res.status(404).json({
-          success: false,
-          message: "No bills found",
-        });
-      }
-  
-      // Map bills to include status based on is_active field
-      const formattedBills = bills.map(bill => ({
+  try {
+    // Retrieve all bills with the required fields
+    const bills = await Bill.find({}, 'BillNumber disease_name patient_name phoneNumber BillDate BillTime is_active');
+
+    // Check if any bills exist
+    if (bills.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: "No bills found",
+      });
+    }
+
+    // Retrieve patient details from the Patient collection
+    const formattedBills = await Promise.all(bills.map(async (bill) => {
+      // Lookup the patient using the patient ID
+      const patient = await Patient.findById(bill.patient_name); // Assuming patient_name holds the patient ID
+
+      return {
         BillNumber: bill.BillNumber,
         disease_name: bill.disease_name,
-        patient_name: bill.patient_name,
+        patient_id: bill.patient_name, // Include patient ID from the bill
+        patient_name: patient ? `${patient.first_name} ${patient.last_name}` : 'Unknown', // Concatenate first and last name
         phoneNumber: bill.phoneNumber,
         BillDate: bill.BillDate,
         BillTime: bill.BillTime,
-        status: bill.is_active ? 'Paid' : 'Unpaid' // Determine status based on is_active field
-      }));
-  
-      // Return the list of formatted bills
-      res.status(200).json({
-        success: true,
-        message: "Retrieved all bills successfully",
-        data: formattedBills,
-      });
-    } catch (error) {
-      res.status(500).json({
-        success: false,
-        message: "An error occurred while retrieving bills: " + error.message,
-      });
-    }
-  };
+        status: bill.is_active ? 'Paid' : 'Unpaid',
+      };
+    }));
+
+    // Return the formatted bills with both patient ID and name
+    res.status(200).json({
+      success: true,
+      message: "Retrieved all bills successfully",
+      data: formattedBills,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "An error occurred while retrieving bills: " + error.message,
+    });
+  }
+};
 
   const searchPatient = async (req, res) => {
     try {
