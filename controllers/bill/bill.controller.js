@@ -144,6 +144,34 @@ const monitorBill = async (req, res) => {
     }
   };
 
+  const billView = async (req, res) => {
+    try {
+      // Fetch all bills
+      const bills = await Bill.find().lean();
+  
+      // Map over bills to add patient name by looking up each patient's ID
+      const formattedBills = await Promise.all(bills.map(async (bill) => {
+        // Find patient by ID stored in patient_name
+        const patient = await Patient.findById(bill.patient_name);
+        
+        return {
+          ...bill,
+          patient_id: bill.patient_name, // Store original patient ID as `patient_id`
+          patient_name: patient ? `${patient.first_name} ${patient.last_name}` : 'Unknown', // Replace with patient's full name or 'Unknown' if not found
+        };
+      }));
+  
+      // Send formatted response with actual patient names
+      res.status(200).json({
+        success: true,
+        message: "Retrieved all bills successfully",
+        data: formattedBills,
+      });
+    } catch (error) {
+      res.status(500).json({ error: 'An error occurred while fetching bills' });
+    }
+  };
+  
 
 // Update Bill Fields
 // const updateBill = async (billId, updateData) => {
@@ -185,15 +213,6 @@ const monitorBill = async (req, res) => {
 // };
 
 
-
-const billView = async (req, res) => {
-  try {
-    const bills = await Bill.find(); // Fetch all records from the Bill collection
-    res.status(200).json(bills); // Send the bills data as a JSON response
-  } catch (error) {
-    res.status(500).json({ error: 'An error occurred while fetching bills' });
-  }
-};
 
   // const updateDocProfile = async (req, res) => {
   //   try {
