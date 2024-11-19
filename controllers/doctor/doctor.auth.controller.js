@@ -220,6 +220,39 @@ const getAllDoctors = async (req, res) => {
     });
   }
 };
+const getDoctorById = async (req, res) => {
+  try {
+    // Extract doctor ID from the request parameters
+    const doctorId = req.params.id;
+
+    // Find the doctor by ID in the database
+    const doctor = await Doctor.findById(doctorId);
+
+    // Check if the doctor exists
+    if (!doctor) {
+      return res.status(404).json({
+        status: 404,
+        success: false,
+        message: "Doctor not found.",
+      });
+    }
+
+    // Respond with the doctor details
+    res.status(200).json({
+      status: 200,
+      success: true,
+      data: doctor,
+      message: "Doctor retrieved successfully.",
+    });
+  } catch (error) {
+    // Handle errors and send a response
+    res.status(500).json({
+      status: 500,
+      success: false,
+      message: error.message || "Internal Server Error",
+    });
+  }
+};
 
 // // /* ------------------------------- VERIFY OTP ------------------------------- */
 const verifyOtp = async (req, res) => {
@@ -382,5 +415,7 @@ module.exports = {
   verifyOtp,
   resetPassword,
   changePassword,
-  getAllDoctors
+  getAllDoctors,
+  getDoctorById
+
 };
