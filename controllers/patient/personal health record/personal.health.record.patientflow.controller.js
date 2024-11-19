@@ -85,7 +85,7 @@ const getpatintDetails = async (req, res) => {
           
           const getPatientAppointmentsMedical = async (req, res) => {
             try {
-              const { patientId } = req.params; // Expecting patientId in the request body
+              const { patientId } = req.body; // Expecting patientId in the request body
           
               // Validate patientId
               if (!patientId) {
@@ -130,7 +130,7 @@ const getpatintDetails = async (req, res) => {
           
           const getPatientAppointmentsMedicalPersnoal = async (req, res) => {
             try {
-              const { patientId } = req.params; // Expecting patientId in the request body
+              const { patientId } = req.body; // Expecting patientId in the request body
           
               // Validate patientId
               if (!patientId) {
@@ -178,7 +178,7 @@ const getpatintDetails = async (req, res) => {
 
           const getTestReportPatient = async (req, res) => {
             try {
-              const { patientId } = req.params; // Expecting patientId in the request body
+              const { patientId } = req.body; // Expecting patientId in the request body
           
               // Validate patientId
               if (!patientId) {

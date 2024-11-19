@@ -10,8 +10,8 @@ const {   patientFlowPersonalHealthRecordController } = require("../../../contro
 
 /* -------------------------- CREATE/SIGNUP DOCTOR ----------- */
 router.get("/personal-details-list", patientFlowPersonalHealthRecordController.getpatintDetails);
-router.get("/personal-details-list-medical", patientFlowPersonalHealthRecordController.getPatientAppointmentsMedical);
-router.get("/personal-details-list-medical-persnoal/:patientId", patientFlowPersonalHealthRecordController.getPatientAppointmentsMedicalPersnoal);
+router.post("/personal-details-list-medical", patientFlowPersonalHealthRecordController.getPatientAppointmentsMedical);
+router.post("/personal-details-list-medical-persnoal", patientFlowPersonalHealthRecordController.getPatientAppointmentsMedicalPersnoal);
 
 router.post("/personal-details-list-medical-prescriptions-views", patientFlowPersonalHealthRecordController.getPatientDetailsMedicalView);
 
