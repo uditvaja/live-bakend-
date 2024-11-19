@@ -13,9 +13,9 @@ router.get("/personal-details-list", patientFlowPersonalHealthRecordController.g
 router.get("/personal-details-list-medical", patientFlowPersonalHealthRecordController.getPatientAppointmentsMedical);
 router.get("/personal-details-list-medical-persnoal/:patientId", patientFlowPersonalHealthRecordController.getPatientAppointmentsMedicalPersnoal);
 
-router.get("/personal-details-list-medical-prescriptions-views/:patientId", patientFlowPersonalHealthRecordController.getPatientDetailsMedicalView);
+router.post("/personal-details-list-medical-prescriptions-views", patientFlowPersonalHealthRecordController.getPatientDetailsMedicalView);
 
-router.get("/test-report-views", patientFlowPersonalHealthRecordController.getTestReportPatient);
+router.post("/test-report-views", patientFlowPersonalHealthRecordController.getTestReportPatient);
 
 
 
