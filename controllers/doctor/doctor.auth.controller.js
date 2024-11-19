@@ -222,13 +222,19 @@ const getAllDoctors = async (req, res) => {
 };
 const getDoctorById = async (req, res) => {
   try {
-    // Extract doctor ID from the request parameters
-    const doctorId = req.body;
+    const { doctorId } = req.body;  // Access doctorId directly from the body
 
-    // Find the doctor by ID in the database
+    if (!doctorId) {
+      return res.status(400).json({
+        status: 400,
+        success: false,
+        message: "Doctor ID is required.",
+      });
+    }
+
+    // Convert the doctorId to ObjectId if necessary (in case it's passed as a string)
     const doctor = await Doctor.findById(doctorId);
 
-    // Check if the doctor exists
     if (!doctor) {
       return res.status(404).json({
         status: 404,
@@ -237,7 +243,6 @@ const getDoctorById = async (req, res) => {
       });
     }
 
-    // Respond with the doctor details
     res.status(200).json({
       status: 200,
       success: true,
@@ -245,7 +250,6 @@ const getDoctorById = async (req, res) => {
       message: "Doctor retrieved successfully.",
     });
   } catch (error) {
-    // Handle errors and send a response
     res.status(500).json({
       status: 500,
       success: false,
