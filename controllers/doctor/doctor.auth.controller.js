@@ -223,7 +223,7 @@ const getAllDoctors = async (req, res) => {
 const getDoctorById = async (req, res) => {
   try {
     // Extract doctor ID from the request parameters
-    const doctorId = req.params.id;
+    const doctorId = req.body;
 
     // Find the doctor by ID in the database
     const doctor = await Doctor.findById(doctorId);

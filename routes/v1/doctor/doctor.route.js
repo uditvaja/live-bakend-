@@ -12,8 +12,8 @@ const multer = require('multer');
 /* -------------------------- LOGIN DOCTOR ----------- */
 router.post("/doctor-login", 
     doctorAuthController.login);
-    
-router.get("get-doctor-by-id/:id", doctorAuthController.getDoctorById);
+
+router.post("/get-doctor-by-id", doctorAuthController.getDoctorById);
     // /* -------------------------- FORGOT PASSWORD DOCTOR ----------- */
 router.post("/forgot-pass", doctorAuthController.forgotPass);
 
