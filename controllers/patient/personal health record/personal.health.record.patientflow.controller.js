@@ -31,7 +31,7 @@ const getpatintDetails = async (req, res) => {
 
     const getPatientDetailsMedicalView = async (req, res) => {
             try {
-              const { patientId } = req.body; // Expecting patientId in the request body
+              const { patientId } = req.parms; // Expecting patientId in the request body
           
               // Validate patientId
               if (!patientId) {
